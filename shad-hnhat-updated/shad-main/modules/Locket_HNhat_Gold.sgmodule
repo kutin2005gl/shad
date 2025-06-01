@@ -2,7 +2,8 @@
 #!desc=Unlock Gold Badge in Locket App
 
 [Script]
-revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/YOUR_USERNAME/shad/main/js/locket.hnhat.js, requires-body=true, max-size=-1, timeout=60
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/kutin2005gl/shad/main/shad-hnhat-updated/shad-main/js/locket.hnhat.js
+, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
 hostname = %APPEND% api.revenuecat.com
