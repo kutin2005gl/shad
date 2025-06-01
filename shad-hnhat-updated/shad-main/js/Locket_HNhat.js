@@ -8,10 +8,8 @@ const mapping = {
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
 var obj = JSON.parse($response.body);
 
-// ✅ Thêm thông báo & huy hiệu (nếu app nhận)
-obj.Attention = "Đã nâng cấp thành công gói GOLD bởi HNhat. Không chia sẻ công khai!";
+obj.Attention = "Bạn đã được nâng cấp GOLD bởi HNhat";
 
-// ✅ Đối tượng thông tin gói VIP (giả lập)
 var fakeSubscription = {
   is_sandbox: false,
   ownership_type: "PURCHASED",
@@ -32,7 +30,6 @@ var fakeEntitlement = {
   expires_date: "2099-12-18T01:04:17Z"
 };
 
-// ✅ Mapping entitlements dựa theo User-Agent
 const match = Object.keys(mapping).find(key => ua.includes(key));
 
 if (match) {
@@ -49,11 +46,10 @@ if (match) {
   obj.subscriber.entitlements["pro"] = fakeEntitlement;
 }
 
-// ✅ Các trường gợi ý giúp hiển thị huy hiệu (nếu app có dùng)
 obj.subscriber.badge = "gold";
-obj.subscriber.has_gold_badge = true;
 obj.subscriber.is_gold = true;
 obj.subscriber.user_type = "gold";
+obj.subscriber.has_gold_badge = true;
 obj.subscriber.gold_access = true;
 obj.subscriber.vip_level = "gold";
 
